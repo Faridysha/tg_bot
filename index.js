@@ -1,8 +1,8 @@
 const  { Telegraf, Input } = require('telegraf');
 const { message } = require('telegraf/filters')
-
+require('dotenv').config();
 const fs = require('fs');
-const token = fs.readFileSync('realpassword.txt', 'utf8');
+const token = process.env.PASSWORD;
 
 const bot = new Telegraf(token);
 
