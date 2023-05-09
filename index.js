@@ -7,24 +7,24 @@ const token = process.env.PASSWORD;
 const bot = new Telegraf(token);
 
 bot.start((ctx) => ctx.reply('Бот работает, ура!'));
-//bot.help((ctx) => ctx.reply('Отправь мне стикер'));
+//bot.help((ctx) => ctx.reply('Бот отправит вам рандомного котика с фразой, которую вы ему напишите. И даже гифку по команде "Гифка'));
 //bot.on(message('sticker'), (ctx) => ctx.reply('Классный стикер!'));
 //bot.hears('Лох', (ctx) => ctx.reply('Сам лох!'))
 bot.hears('Гифка', async (ctx) => {
-   await ctx.replyWithAnimation(Input.fromURLStream('https://cataas.com/cat/gif'));
+    ctx.replyWithAnimation(Input.fromURLStream('https://cataas.com/cat/gif'));
    console.log(ctx.message.from.username)
    console.log(ctx.message.text)
    
 });
 bot.hears('Рандом', async (ctx) => {
-    await ctx.replyWithPhoto(Input.fromURLStream('https://cataas.com/cat'));
+     ctx.replyWithPhoto(Input.fromURLStream('https://cataas.com/cat'));
    console.log(ctx.message.from.username)
    console.log(ctx.message.text)
    
 });
 bot.hears(message, async (ctx) => {
 
-    await ctx.replyWithPhoto(Input.fromURLStream('https://cataas.com/cat/says/' + ctx.message.text));
+     ctx.replyWithPhoto(Input.fromURLStream('https://cataas.com/cat/says/' + ctx.message.text));
    console.log(ctx.message.from.username)
    console.log(ctx.message.text)
    
